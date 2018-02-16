@@ -15,8 +15,7 @@ class ArticlesController < ApplicationController
 	def create
 		@art = Article.new(article_param)
 
-		if @art.valid?
-			@art.save
+		if @art.save
 			# что бы небыло двойного заноса данных автоматом перенаправляет на занесённую статью
 			redirect_to @art
 		else
@@ -24,7 +23,19 @@ class ArticlesController < ApplicationController
 		end
 	end
 
+	def edit
+		@artic = Article.find(params[:id])
+	end
 	
+	def update
+		@artic = Article.find(params[:id])
+		if @artic.update(article_param)
+			redirect_to	@artic
+		else
+			render action: 'edit'
+		end
+	end
+
 	def destroy
 		
 	end

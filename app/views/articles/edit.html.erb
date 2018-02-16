@@ -1,0 +1,27 @@
+<h1>Edit article</h1>
+<!-- Если переменная определенна то выводить ошибку -->
+	<!-- Либо определять переменную в action /new -->
+	<% if @art && @art.errors.any? %>
+		<p>
+		<ul>
+		<% @art.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+		</p>
+	<% end %>
+	<!-- замена метода на put и добавление в путь id -->
+<%= form_for :article, url: article_path(@artic), method: :put do |f| %>
+	<p>
+		<%= f.label :title %> <br>
+		<%= f.text_field :title %>
+	</p>
+
+	<p>
+		<%= f.label :text %> <br>
+		<%= f.text_area :text %>
+	</p>
+	<p>
+		<%= f.submit 'Update' %>
+	</p>
+<% end %>
