@@ -3,5 +3,8 @@
 <% @show_articles.each do |thing| %>
 	<h3><%= thing.title %></h3>
 	<p><%= thing.text %></p>
-	<p><%= thing.created_at %></p> <br> 
+	<p><%= thing.created_at %></p>
+	<%= link_to 'Show', article_path(thing) %>
+	<br><hr>
 <% end %>
+
