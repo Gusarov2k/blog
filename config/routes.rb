@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get '/' => 'home#index'
 # пустая строка в аргументе это перенаправление по пути по умолчанию для contacts
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
-  resources :articles
+# Вложенный маршрут  
+  resources :articles do
+  	resources :comments, only: [:create]
+  end
 
 # for Hw 38
   resource :terms, only: [:new], path_names: {:new => ''}
