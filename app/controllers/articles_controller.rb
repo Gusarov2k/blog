@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
 	
+	def show
+		@artic = Article.find(params[:id])
+	end
+	
 	def index
 		@show_articles = Article.all
 	end
@@ -14,7 +18,7 @@ class ArticlesController < ApplicationController
 		if @art.valid?
 			@art.save
 			# что бы небыло двойного заноса данных автоматом перенаправляет на занесённую статью
-			redirect_to @article
+			redirect_to @art
 		else
 			render action: 'new'
 		end
