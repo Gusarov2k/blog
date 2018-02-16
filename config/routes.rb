@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 # for Hw 38
   resource :terms, only: [:new], path_names: {:new => ''}
   resource :about, only: [:new],controller: :about, path_names: {:new => ''}
+
+# 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
