@@ -1,6 +1,19 @@
 <h1>Contact Form</h1>
 
 <%= form_for :contact, url: '/contacts' do |con| %>
+	<!-- Если переменная определенна то выводить ошибку -->
+	<!-- Либо определять переменную в action /new -->
+	<% if @contact && @contact.errors.any? %>
+		<p>
+		<ul>
+		<% @contact.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+		</p>
+	<% end %>
+	
+
 	<p>
 		<%= con.label :email %> <br>
 		<%= con.text_field :email %>
