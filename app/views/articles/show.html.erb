@@ -1,0 +1,7 @@
+<h1>Show articles</h1>
+
+<% @show_articles.each do |thing| %>
+	<h3><%= thing.title %></h3>
+	<p><%= thing.text %></p>
+	<p><%= thing.created_at %></p> <br> 
+<% end %>

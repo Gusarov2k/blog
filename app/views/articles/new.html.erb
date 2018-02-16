@@ -1,4 +1,15 @@
 <h1>New article</h1>
+<!-- Если переменная определенна то выводить ошибку -->
+	<!-- Либо определять переменную в action /new -->
+	<% if @art && @art.errors.any? %>
+		<p>
+		<ul>
+		<% @art.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+		</ul>
+		</p>
+	<% end %>
 <%= form_for :article, url: '/articles' do |f| %>
 	<p>
 		<%= f.label :title %> <br>

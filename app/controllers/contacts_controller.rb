@@ -14,6 +14,8 @@ class ContactsController < ApplicationController
 			render action: 'new'
 		end
 	end
+
+	
 # create methods closed для разрешения доступа к атрибутам
 	private
 
