@@ -1,0 +1,16 @@
+<h1>Contact Form</h1>
+
+<%= form_for :contact, url: '/contacts' do |con| %>
+	<p>
+		<%= con.label :email %> <br>
+		<%= con.text_field :email %>
+	</p>
+
+	<p>
+		<%= con.label :message %> <br>
+		<%= con.text_area :message %>
+	</p>
+	<p>
+		<%= con.submit %>
+	</p>
+<% end %>
