@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root to: "home#index"
+
   get '/' => 'home#index'
 # пустая строка в аргументе это перенаправление по пути по умолчанию для contacts
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
