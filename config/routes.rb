@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
 # Вложенный маршрут  
   resources :articles do
-  	resources :comments
+  	resources :comments, only: [:create]
   end
 
 # for Hw 38

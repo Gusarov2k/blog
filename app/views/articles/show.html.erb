@@ -4,7 +4,18 @@
 	<p><%= @artic.text %></p>
 	<p><%= @artic.created_at %></p>
 
-<%= form_for([@articl, @article.comments.build]) do |f| %>
+<h2>Comments</h2>
+
+
+
+<% @artic.comments.each do |thing| %>
+	<hr>
+	<h3><%= thing.author %></h3>	
+	<p><%= thing.body %></p>
+	<hr>
+<% end %>
+
+<%= form_for([@artic, @artic.comments.build]) do |f| %>
 	<p>
 		<%= f.label :author %> <br>
 		<%= f.text_field :author %>
