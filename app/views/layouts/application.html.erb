@@ -10,11 +10,18 @@
 
   <body>
   	<br>
-  	<%= link_to 'Sign in', new_user_session_url  %>
-	<!-- <a href="/users/sign_in">Sign in</a> -->
+	<% if user_signed_in? %>
+		
+		<%= link_to 'Sign out', destroy_user_session_ur, method: :delete  %>
+		<!-- <a href="/users/sign_out" data-method = 'delete'>Sign out</a> -->
+	<% else %>
+		<%= link_to 'Sign in', new_user_session_url  %>
+		<!-- <a href="/users/sign_in">Sign in</a> -->
+	<% end %>
 
-	<%= link_to 'Sign out', destroy_user_session_ur, method: :delete  %>
-	<!-- <a href="/users/sign_out" data-method = 'delete'>Sign out</a> -->
+  	
+	
+
 
 	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
