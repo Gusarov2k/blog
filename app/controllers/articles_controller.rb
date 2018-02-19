@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-	
-	before_action :authenticate_user!
+	# Пременение авторизации для определенных action
+	before_action :authenticate_user!, :only => [:new, :create]
 
 	def show
 		@artic = Article.find(params[:id])
